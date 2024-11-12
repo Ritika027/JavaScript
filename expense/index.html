@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fancy Budget Tracker</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Welcome Page with fancy animation -->
+    <div id="welcomePage" class="page animated-page">
+        <h1>Welcome to Your Budget Tracker</h1>
+        <p>Track expenses, monitor your budget, and avoid debt!</p>
+        <button onclick="startTracker()">Get Started</button>
+    </div>
+
+    <!-- Budget Tracker Dashboard -->
+    <div id="dashboard" class="page hidden">
+        <div class="top-bar">
+            <button onclick="toggleLogin()">Login</button>
+        </div>
+        <h2>Monthly Budget Dashboard</h2>
+        <div class="calendar">
+            <h3>Days Left for Next Salary: <span id="daysLeft"></span></h3>
+        </div>
+        <div class="overview-grid">
+            <div class="box salary-box">
+                <h3>Enter Salary</h3>
+                <input type="number" id="salaryInput" placeholder="Enter salary" oninput="updateSalary()">
+            </div>
+            <div class="box transaction-box">
+                <h3>Total Transactions</h3>
+                <p id="totalTransactions">$0</p>
+            </div>
+            <div class="box remaining-box">
+                <h3>Remaining Salary</h3>
+                <p id="remainingSalary">$0</p>
+            </div>
+        </div>
+
+        <div class="input-section">
+            <h3>Add Expense</h3>
+            <div class="preset-options">
+                <button onclick="addPresetExpense(10)">10</button>
+                <button onclick="addPresetExpense(20)">20</button>
+                <button onclick="addPresetExpense(50)">50</button>
+                <button onclick="addPresetExpense(100)">100</button>
+                <button onclick="addPresetExpense(500)">500</button>
+                <button onclick="addPresetExpense(1000)">1000</button>
+            </div>
+            <input type="number" id="manualAmount" placeholder="Enter other amount" oninput="addManualExpense()">
+        </div>
+
+        <h3>Transaction History</h3>
+        <ul id="transactionList"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
